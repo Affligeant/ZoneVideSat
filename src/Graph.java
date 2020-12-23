@@ -65,7 +65,7 @@ public class Graph {
         // pas correspondre en même temps à un autre nœud de la zone vide.
         for(int j = 0; j < nodes.length; j++) {
             for(int i = 0; i < voidSize; i++) {
-                for(int k = 1; k < voidSize - i; k++) {
+                for(int k = i + 1; k < voidSize ; k++) {
                     String c = "-" + resolve(j, i) + " -" + resolve(j, k) + " 0\n";
                     clauses.append(c);
                     nbClauses++;
