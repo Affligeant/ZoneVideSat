@@ -10,6 +10,6 @@ public class Main {
         defaultGraph.addArc(2, 4);
         defaultGraph.addArc(4, 5);
 
-        System.out.println(defaultGraph.nodes[0][5]);
+        System.out.println(defaultGraph.voidSAT(2));
     }
 }
