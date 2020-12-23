@@ -74,10 +74,27 @@ public class Graph {
         }
 
         //Clauses pour satisfaire l'absence de lien entre les nœuds de la solution.
-        for(int i = 0; i < nodes.length; i++) {
-            
-        }
+        for(int i = 0; i < voidSize; i++) {
+            for(int j = 0; j < voidSize; j++) {
+                if(j != i) {
+                    for(int k = 0; k < nodes.length; k++) {
+                        for(int l = 0; l < nodes.length; l++) {
 
+                            // Si il y a un arc entre les nœuds k et l, les deux ne peuvent
+                            // appartenir en même temps à la solution. i.e. au moins un des deux
+                            // est faux. i.e. les variables "k est le nœud i" et "l est le nœud j"
+                            // contiennent au minimum un faux.
+
+                            if(nodes[k][l] == 1) {
+                                String c = "-" + resolve(k, i) + " -" + resolve(l, j) + " 0\n";
+                                clauses.append(c);
+                                nbClauses++;
+                            }
+                        }
+                    }
+                }
+            }
+        }
 
         result += "p cnf " + nbVariables + " " + nbClauses + "\n";
         result += clauses.toString();
