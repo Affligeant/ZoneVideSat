@@ -85,7 +85,7 @@ public class Graph {
                             // est faux. i.e. les variables "k est le nœud i" et "l est le nœud j"
                             // contiennent au minimum un faux.
 
-                            if(nodes[k][l] == 1) {
+                            if(nodes[k][l] == 1 && k < l) {
                                 String c = "-" + resolve(k, i) + " -" + resolve(l, j) + " 0\n";
                                 clauses.append(c);
                                 nbClauses++;
